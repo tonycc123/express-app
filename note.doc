@@ -1,0 +1,47 @@
+http.IncomingMessage
+
+http.ServerResponse
+
+res.statusCode
+
+res.end // 结束响应
+
+res.send() // 
+
+res.send 可以发送不同类型的数据
+res.write()// 可以发送多次数
+res.end()//
+
+res.cookie(key, value)
+
+req.params // /user/:id
+req.query // ?for=bar
+
+// 客户端使用json发送数据
+服务端使用req.body获取客户端请求数据 
+需要配置：app.use(express.json()) // 解析表单 application/json
+同时app.use(express.urlencoded()) // x-www-form-urlencoded
+
+// 中间件 next
+next() // 下一个路由
+next('route') // 指的是跳过此路由中的还有的中间件 执行下一个路由
+next(任意数据) // express都视为抛出错误，直接走错误中间件 如果有的话
+
+// 中间件也可以在数组中申明使用 app.METHOD
+
+// 路由器级别路由分类
+
+创建路由实例
+router = express.Router();
+
+router.get(path, callback)
+
+然后在主app上使用 mountpath可有可无 访问前辍
+app.use(mountpath?, router)
+
+// 错误处理中间件 总是放在所有路由后 接收四个对象
+err, req, res, next
+
+// 处理404
+
+cors中间件 为所有的请求头 添加 access-control-allow-origin
